@@ -25,7 +25,7 @@ public class frmMain extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(400, 400));
 
-        lblImageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Final_Fantasy_logo.png"))); // NOI18N
+        lblImageTitle.setIcon(new javax.swing.ImageIcon("C:\\Users\\ra2257042\\Downloads\\output-onlinepngtools.png")); // NOI18N
 
         lblTitle.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         lblTitle.setText("          QUIZ");
@@ -70,7 +70,7 @@ public class frmMain extends javax.swing.JFrame {
                 .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("Main");

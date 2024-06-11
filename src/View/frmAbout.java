@@ -16,7 +16,7 @@ public class frmAbout extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Final Fantasy Quiz - Sobre");
-        setPreferredSize(new java.awt.Dimension(400, 400));
+        setLocationByPlatform(true);
         setResizable(false);
 
         btnVoltar.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
@@ -58,6 +58,7 @@ public class frmAbout extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed

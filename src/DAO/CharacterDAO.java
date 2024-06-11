@@ -2,14 +2,14 @@ package DAO;
 
 //Importações
 import DTO.CharacterDTO;
-import DAO.APIConnection;
+import org.json.simple.JSONArray;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class CharacterDAO {
-    public CharacterDTO selectCharacter () {
+    public static CharacterDTO selectCharacter () {
         CharacterDTO chDTO = new CharacterDTO();
         
         try {
@@ -19,14 +19,12 @@ public class CharacterDAO {
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(responseBody);
             
-            chDTO.setName((String) json.get("Name"));
-            chDTO.setPictures(json.get("Picture"));
+            chDTO.setName((String) json.get("name"));
+            chDTO.setPicture((JSONArray) json.get("pictures"));
             
-        } catch(){
-        
+            return chDTO;     
+        } catch(ParseException ex){
+            throw new RuntimeException(ex.getMessage());
         }
-        
-        return chDTO;
-    }
-        
+    }     
 }
