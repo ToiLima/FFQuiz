@@ -6,6 +6,9 @@
     <Property name="title" type="java.lang.String" value="Final Fantasy Quiz - Sobre"/>
     <Property name="locationByPlatform" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
+    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[400, 400]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -31,7 +34,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" pref="388" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="btnVoltar" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="btnGoBack" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -45,14 +48,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="325" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnVoltar" min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="btnGoBack" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnVoltar">
+    <Component class="javax.swing.JButton" name="btnGoBack">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Yu Gothic UI" size="12" style="1"/>
@@ -60,7 +63,7 @@
         <Property name="text" type="java.lang.String" value="VOLTAR"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGoBackActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -75,9 +78,10 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic UI" size="14" style="0"/>
+              <Font name="Yu Gothic UI" size="18" style="0"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="Este programa foi feito como projeto de &#xa;entrega do segundo bimestre da m&#xe1;teria de &#xa;Linguagem de Programa&#xe7;&#xe3;o VI em Java, &#xa;utilizando Java Swing e bibliotecas para&#xa;consumo de APIs, acesso a URI e de &#xa;manipula&#xe7;&#xe3;o de imagens&#xa;&#xa;Baseado na s&#xe9;rie de RPG da Square-Enix, &#xa;Final Fantasy, lan&#xe7;ado desde de 1987.&#xa;&#xa;Todos os conte&#xfa;dos s&#xe3;o propriedades de &#xa;seus respectivos donos.&#xa;&#xa;API: https://www.moogleapi.com&#xa;GitHub: https://github.com/ToiLima/FFQuiz"/>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
         </Component>

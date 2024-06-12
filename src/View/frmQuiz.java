@@ -3,13 +3,12 @@ package View;
 import Controller.QuizController;
 import DTO.CharacterDTO;
 import java.awt.Component;
-import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class frmQuiz extends javax.swing.JFrame {
-    public CharacterDTO chDTO = new CharacterDTO();
-    
+    private CharacterDTO chDTO = new CharacterDTO();
     
     public frmQuiz() {
         initComponents();
@@ -19,13 +18,8 @@ public class frmQuiz extends javax.swing.JFrame {
     }
     
     private void newMatch() {
-        //this.lblCharacterImage.setIcon(QuizController.characterImage(chDTO, lblCharacterImage));
-        chDTO = QuizController.startQuiz();
-        ImageIcon imageIcon = (ImageIcon) QuizController.characterImage(chDTO, lblCharacterImage);
-        Image image = imageIcon.getImage(); // transform it 
-        Image newimg = image.getScaledInstance(300, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
-        imageIcon = new ImageIcon(newimg);  // transform it back
-
+        this.chDTO = QuizController.startQuiz();
+        ImageIcon imageIcon = (ImageIcon) QuizController.characterImage(this.chDTO, lblCharacterImage);
         this.lblCharacterImage.setIcon(imageIcon);
     }
     
@@ -33,8 +27,7 @@ public class frmQuiz extends javax.swing.JFrame {
         for(int i = 0; i< getContentPane().getComponentCount(); i++){
             Component c = getContentPane().getComponent(i);
             
-            if (c instanceof JTextField){
-                JTextField field = (JTextField) c;
+            if (c instanceof JTextField field){
                 field.setText(null);
             }
         }
@@ -47,8 +40,8 @@ public class frmQuiz extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lblCharacterImage = new javax.swing.JLabel();
         lblQuestion = new javax.swing.JLabel();
-        txtQuestion = new javax.swing.JTextField();
-        btnResponse = new javax.swing.JButton();
+        txtAnswer = new javax.swing.JTextField();
+        btnAnswer = new javax.swing.JButton();
         lblScore = new javax.swing.JLabel();
         lblAcumulatedScore = new javax.swing.JLabel();
         btnGoBack = new javax.swing.JButton();
@@ -59,21 +52,21 @@ public class frmQuiz extends javax.swing.JFrame {
         setTitle("Final Fantasy Quiz ");
         setLocationByPlatform(true);
         setName("frmQuiz"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(400, 400));
         setResizable(false);
+        setSize(new java.awt.Dimension(400, 400));
 
         lblCharacterImage.setBorder(new javax.swing.border.MatteBorder(null));
 
         lblQuestion.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
         lblQuestion.setText("Qual é o nome do personagem");
 
-        txtQuestion.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
+        txtAnswer.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
 
-        btnResponse.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
-        btnResponse.setText("CHUTAR");
-        btnResponse.addActionListener(new java.awt.event.ActionListener() {
+        btnAnswer.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
+        btnAnswer.setText("CHUTAR");
+        btnAnswer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResponseActionPerformed(evt);
+                btnAnswerActionPerformed(evt);
             }
         });
 
@@ -100,14 +93,14 @@ public class frmQuiz extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblQuestion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtQuestion))
+                        .addComponent(txtAnswer))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblScore)
                         .addGap(18, 18, 18)
                         .addComponent(lblAcumulatedScore, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnResponse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAnswer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGoBack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -125,13 +118,13 @@ public class frmQuiz extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblQuestion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblScore)
                             .addComponent(lblAcumulatedScore, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnResponse, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnGoBack, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(52, 52, 52))
@@ -141,14 +134,22 @@ public class frmQuiz extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnResponseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResponseActionPerformed
-        String name = this.txtQuestion.getText();
-        Integer points = Integer.valueOf(this.lblAcumulatedScore.getText());
-     
-        points += QuizController.submitAnswer(name, chDTO, points);
-           
-        this.lblAcumulatedScore.setText(points.toString());
-    }//GEN-LAST:event_btnResponseActionPerformed
+    private void btnAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnswerActionPerformed
+        String userAnswer = this.txtAnswer.getText().trim();
+        int currentScore = Integer.parseInt(this.lblAcumulatedScore.getText());
+
+        if (userAnswer.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, insira uma resposta");
+            return;
+        }
+
+        int newScore = QuizController.submitAnswer(userAnswer, this.chDTO, currentScore);
+
+        this.lblAcumulatedScore.setText(String.valueOf(newScore));
+  
+        this.wipeOutField();
+        this.newMatch();   
+    }//GEN-LAST:event_btnAnswerActionPerformed
 
     private void btnGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBackActionPerformed
         this.setVisible(false);
@@ -164,13 +165,13 @@ public class frmQuiz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAnswer;
     private javax.swing.JButton btnGoBack;
-    private javax.swing.JButton btnResponse;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblAcumulatedScore;
     private javax.swing.JLabel lblCharacterImage;
     private javax.swing.JLabel lblQuestion;
     private javax.swing.JLabel lblScore;
-    private javax.swing.JTextField txtQuestion;
+    private javax.swing.JTextField txtAnswer;
     // End of variables declaration//GEN-END:variables
 }

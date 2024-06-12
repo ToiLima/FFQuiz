@@ -5,6 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 public class APIConnection {
     private static final String API_URL = "https://www.moogleapi.com/api/v1/characters/random";
@@ -22,7 +23,8 @@ public class APIConnection {
             if (response.statusCode() == 200) {
                 return response.body();                
             } else {
-                return "REQUEST FAILED: "+ response.statusCode();
+                JOptionPane.showMessageDialog(null, "REQUEST FAILED: "+ response.statusCode());
+                return null;
             }
         } catch (IOException | InterruptedException ex){
             throw new RuntimeException(ex.getMessage());
